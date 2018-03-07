@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Linear-feedback shift register - Wikipedia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Linear-feedback_shift_register","wgTitle":"Linear-feedback shift register","wgCurRevisionId":827484081,"wgRevisionId":827484081,"wgArticleId":58992,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages using RFC magic links","Articles needing additional references from March 2009","All articles needing additional references","Articles lacking in-text citations from April 2009","All articles lacking in-text citations","Articles with multiple maintenance issues","All Wikipedia articles needing clarification","Wikipedia articles needing clarification from April 2013","Articles needing additional references from May 2016","Pages using div col with deprecated parameters","Articles with example C code","Binary arithmetic","Digital registers","Cryptographic algorithms","Pseudorandom number generators"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Linear-feedback_shift_register","wgRelevantArticleId":58992,"wgRequestId":"WphaYQpAICMAAEtym4sAAAEV","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{}},"wgStableRevisionId":null,"wgWikiEditorEnabledModules":[],"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsShouldSendModuleToUser":true,"wgPopupsConflictsWithNavPopupGadget":false,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"en","wgMFExpandAllSectionsUserOption":true,"wgMFEnableFontChanger":true,"wgMFDisplayWikibaseDescriptions":{"search":false,"nearby":false,"watchlist":false,"tagline":false},"wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgWikibaseItemId":"Q681101","wgScoreNoteLanguages":{"arabic":"العربية","catalan":"català","deutsch":"Deutsch","english":"English","espanol":"español","italiano":"italiano","nederlands":"Nederlands","norsk":"norsk","portugues":"português","suomi":"suomi","svenska":"svenska","vlaams":"West-Vlams"},"wgScoreDefaultNoteLanguage":"nederlands","wgCentralAuthMobileDomain":false,"wgCodeMirrorEnabled":false,"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":true});mw.loader.state({"ext.gadget.charinsert-styles":"ready","ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","ext.pygments":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready"});mw.loader.implement("user.tokens@1dqfd7l",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});mw.loader.load(["ext.cite.a11y","ext.math.scripts","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.watchlist-notice","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.compactlinks","ext.uls.interface","ext.3d","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.pygments%2CwikimediaBadges%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.charinsert-styles&amp;only=styles&amp;skin=vector"/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.31.0-wmf.22"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Linear-feedback_shift_register"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Linear-feedback_shift_register"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/load.php?debug=false&amp;lang=en&amp;modules=html5shiv&amp;only=scripts&amp;skin=vector&amp;sync=1"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Linear-feedback_shift_register rootpage-Linear-feedback_shift_register skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div><div class="mw-indicators mw-body-content">
+</div>
+<h1 id="firstHeading" class="firstHeading" lang="en">Linear-feedback shift register</h1>			<div id="bodyContent" class="mw-body-content">
+				<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>				<div id="contentSub"></div>
+								<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div role="note" class="hatnote navigation-not-searchable">"LFSR" redirects here. For the airport using that ICAO code, see <a href="/wiki/Reims_%E2%80%93_Champagne_Air_Base" title="Reims – Champagne Air Base">Reims – Champagne Air Base</a>.</div>
+<table class="plainlinks metadata ambox ambox-content ambox-multiple_issues compact-ambox" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Ambox_important.svg/40px-Ambox_important.svg.png" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Ambox_important.svg/60px-Ambox_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Ambox_important.svg/80px-Ambox_important.svg.png 2x" data-file-width="40" data-file-height="40" /></div>
+</td>
+<td class="mbox-text">
+<div class="mbox-text-span">
+<div class="mw-collapsible" style="width:95%; margin: 0.2em 0;"><b>This article has multiple issues.</b> Please help <b><a class="external text" href="//en.wikipedia.org/w/index.php?title=Linear-feedback_shift_register&amp;action=edit">improve it</a></b> or discuss these issues on the <b><a href="/wiki/Talk:Linear-feedback_shift_register" title="Talk:Linear-feedback shift register">talk page</a></b>. <small><i>(<a href="/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove these template messages</a>)</i></small>
+<div class="mw-collapsible-content" style="margin-top: 0.3em;">
+<table class="plainlinks metadata ambox ambox-content ambox-Refimprove" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><a href="/wiki/File:Question_book-new.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="512" data-file-height="399" /></a></div>
+</td>
+<td class="mbox-text">
+<div class="mbox-text-span">This article <b>needs additional citations for <a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>. <span class="hide-when-compact">Please help <a class="external text" href="//en.wikipedia.org/w/index.php?title=Linear-feedback_shift_register&amp;action=edit">improve this article</a> by <a href="/wiki/Help:Introduction_to_referencing_with_Wiki_Markup/1" title="Help:Introduction to referencing with Wiki Markup/1">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.</span> <small><i>(March 2009)</i></small> <small class="hide-when-compact"><i>(<a href="/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a>)</i></small></div>
+</td>
+</tr>
+</table>
+<table class="plainlinks metadata ambox ambox-style ambox-More_footnotes" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Text_document_with_red_question_mark.svg/40px-Text_document_with_red_question_mark.svg.png" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Text_document_with_red_question_mark.svg/60px-Text_document_with_red_question_mark.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Text_document_with_red_question_mark.svg/80px-Text_document_with_red_question_mark.svg.png 2x" data-file-width="48" data-file-height="48" /></div>
+</td>
+<td class="mbox-text">
+<div class="mbox-text-span">This article includes a <a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">list of references</a>, but <b>its sources remain unclear</b> because it has <b>insufficient <a href="/wiki/Wikipedia:Citing_sources#Inline_citations" title="Wikipedia:Citing sources">inline citations</a></b>. <span class="hide-when-compact">Please help to <a href="/wiki/Wikipedia:WikiProject_Fact_and_Reference_Check" title="Wikipedia:WikiProject Fact and Reference Check">improve</a> this article by <a href="/wiki/Wikipedia:When_to_cite" title="Wikipedia:When to cite">introducing</a> more precise citations.</span> <small><i>(April 2009)</i></small> <small class="hide-when-compact"><i>(<a href="/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a>)</i></small></div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<small class="hide-when-compact"><i>(<a href="/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a>)</i></small></div>
+</td>
+</tr>
+</table>
+<p>In <a href="/wiki/Computing" title="Computing">computing</a>, a <b>linear-feedback shift register</b> (LFSR) is a <a href="/wiki/Shift_register" title="Shift register">shift register</a> whose input bit is a <a href="/wiki/Linear#Boolean_functions" class="mw-redirect" title="Linear">linear function</a> of its previous state.</p>
+<p>The most commonly used linear function of single bits is <a href="/wiki/Exclusive-or" class="mw-redirect" title="Exclusive-or">exclusive-or</a> (XOR). Thus, an LFSR is most often a shift register whose input bit is driven by the XOR of some bits of the overall shift register value.</p>
+<p>The initial value of the LFSR is called the seed, and because the operation of the register is deterministic, the stream of values produced by the register is completely determined by its current (or previous) state. Likewise, because the register has a finite number of possible states, it must eventually enter a repeating cycle. However, an LFSR with a <a href="/wiki/Primitive_polynomial_(field_theory)" title="Primitive polynomial (field theory)">well-chosen feedback function</a> can produce a sequence of bits that appears random and has a <a href="/wiki/Maximal_length_sequence" class="mw-redirect" title="Maximal length sequence">very long cycle</a>.</p>
+<p>Applications of LFSRs include generating <a href="/wiki/Pseudorandomness" title="Pseudorandomness">pseudo-random numbers</a>, <a href="/wiki/Pseudorandom_noise" title="Pseudorandom noise">pseudo-noise sequences</a>, fast digital counters, and <a href="/wiki/Whitening_sequences" class="mw-redirect" title="Whitening sequences">whitening sequences</a>. Both hardware and software implementations of LFSRs are common.</p>
+<p>The mathematics of a <a href="/wiki/Cyclic_redundancy_check" title="Cyclic redundancy check">cyclic redundancy check</a>, used to provide a quick check against transmission errors, are closely related to those of an LFSR.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+<p></p>
+<div id="toc" class="toc">
+<div class="toctitle" lang="en" dir="ltr" xml:lang="en">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Fibonacci_LFSRs"><span class="tocnumber">1</span> <span class="toctext">Fibonacci LFSRs</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Galois_LFSRs"><span class="tocnumber">2</span> <span class="toctext">Galois LFSRs</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Non-binary_Galois_LFSR"><span class="tocnumber">2.1</span> <span class="toctext">Non-binary Galois LFSR</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Matrix_forms"><span class="tocnumber">3</span> <span class="toctext">Matrix forms</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Some_polynomials_for_maximal_LFSRs"><span class="tocnumber">4</span> <span class="toctext">Some polynomials for maximal LFSRs</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Output-stream_properties"><span class="tocnumber">5</span> <span class="toctext">Output-stream properties</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Applications"><span class="tocnumber">6</span> <span class="toctext">Applications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Uses_as_counters"><span class="tocnumber">6.1</span> <span class="toctext">Uses as counters</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Uses_in_cryptography"><span class="tocnumber">6.2</span> <span class="toctext">Uses in cryptography</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Uses_in_circuit_testing"><span class="tocnumber">6.3</span> <span class="toctext">Uses in circuit testing</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="#Test-pattern_generation"><span class="tocnumber">6.3.1</span> <span class="toctext">Test-pattern generation</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Signature_analysis"><span class="tocnumber">6.3.2</span> <span class="toctext">Signature analysis</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="#Uses_in_digital_broadcasting_and_communications"><span class="tocnumber">6.4</span> <span class="toctext">Uses in digital broadcasting and communications</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#Scrambling"><span class="tocnumber">6.4.1</span> <span class="toctext">Scrambling</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#Other_uses"><span class="tocnumber">6.4.2</span> <span class="toctext">Other uses</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Fibonacci_LFSRs">Fibonacci LFSRs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=1" title="Edit section: Fibonacci LFSRs">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:353px;"><a href="/wiki/File:LFSR-F16.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/28/LFSR-F16.svg/351px-LFSR-F16.svg.png" width="351" height="121" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/28/LFSR-F16.svg/527px-LFSR-F16.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/28/LFSR-F16.svg/702px-LFSR-F16.svg.png 2x" data-file-width="351" data-file-height="121" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:LFSR-F16.svg" class="internal" title="Enlarge"></a></div>
+A 16-bit <a href="/wiki/Fibonacci" title="Fibonacci">Fibonacci</a> LFSR. The feedback tap numbers shown correspond to a primitive polynomial in the table, so the register cycles through the maximum number of 65535 states excluding the all-zeroes state. The state shown, 0xACE1 (<a href="/wiki/Hexadecimal" title="Hexadecimal">hexadecimal</a>) will be followed by 0x5670.</div>
+</div>
+</div>
+<p>The bit positions that affect the next state are called the taps. In the diagram the taps are [16,14,13,11]. The rightmost bit of the LFSR is called the output bit. The taps are XOR'd sequentially with the output bit and then fed back into the leftmost bit. The sequence of bits in the rightmost position is called the output stream.</p>
+<ul>
+<li>The bits in the LFSR state that influence the input are called <i>taps</i>.</li>
+<li>A maximum-length LFSR produces an <a href="/wiki/Maximum_length_sequence" title="Maximum length sequence">m-sequence</a> (i.e., it cycles through all possible 2<sup><i>n</i></sup>&#160;−&#160;1 states within the shift register except the state where all bits are zero), unless it contains all zeros, in which case it will never change.</li>
+<li>As an alternative to the XOR-based feedback in an LFSR, one can also use <a href="/wiki/XNOR" class="mw-redirect" title="XNOR">XNOR</a>.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup> This function is an <a href="/wiki/Affine_transformation" title="Affine transformation">affine map</a>, not strictly a <a href="/wiki/Linear_map" title="Linear map">linear map</a>, but it results in an equivalent polynomial counter whose state is the complement of the state of an LFSR. A state with all ones is illegal when using an XNOR feedback, in the same way as a state with all zeroes is illegal when using XOR. This state is considered illegal because the counter would remain "locked-up" in this state.</li>
+</ul>
+<p>The sequence of numbers generated by an LFSR or its XNOR counterpart can be considered a <a href="/wiki/Binary_numeral_system" class="mw-redirect" title="Binary numeral system">binary numeral system</a> just as valid as <a href="/wiki/Gray_code" title="Gray code">Gray code</a> or the natural binary code.</p>
+<p>The arrangement of taps for feedback in an LFSR can be expressed in <a href="/wiki/Finite_field_arithmetic" title="Finite field arithmetic">finite field arithmetic</a> as a <a href="/wiki/Polynomial" title="Polynomial">polynomial</a> <a href="/wiki/Modular_arithmetic" title="Modular arithmetic">mod</a> 2. This means that the coefficients of the polynomial must be 1s or 0s. This is called the feedback polynomial or reciprocal characteristic polynomial. For example, if the taps are at the 16th, 14th, 13th and 11th bits (as shown), the feedback polynomial is</p>
+<dl>
+<dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{16}+x^{14}+x^{13}+x^{11}+1.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>16</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>14</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>13</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>11</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1.</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{16}+x^{14}+x^{13}+x^{11}+1.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e2635c901f8dd49ffa7a57b3b659fbf866972738" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:25.994ex; height:2.843ex;" alt="{\displaystyle x^{16}+x^{14}+x^{13}+x^{11}+1.}" /></span></dd>
+</dl>
+<p>The "one" in the polynomial does not correspond to a tap – it corresponds to the input to the first bit (i.e. <i>x</i><sup>0</sup>, which is equivalent to 1). The powers of the terms represent the tapped bits, counting from the left. The first and last bits are always connected as an input and output tap respectively.</p>
+<p>The LFSR is maximal-length if and only if the corresponding feedback polynomial is <a href="/wiki/Primitive_polynomial_(field_theory)" title="Primitive polynomial (field theory)">primitive</a>. This means that the following conditions are necessary (but not sufficient):</p>
+<ul>
+<li>The number of taps is <a href="/wiki/Even_and_odd_numbers" class="mw-redirect" title="Even and odd numbers">even</a>.</li>
+<li>The set of taps is <a href="/wiki/Coprime_integers#Coprimality_in_sets" title="Coprime integers">setwise co-prime</a>; i.e., there must be no divisor other than 1 common to all taps.</li>
+</ul>
+<p>Tables of primitive polynomials from which maximum-length LFSRs can be constructed are given below and in the references.</p>
+<p>There can be more than one maximum-length tap sequence for a given LFSR length. Also, once one maximum-length tap sequence has been found, another automatically follows. If the tap sequence in an <i>n</i>-bit LFSR is <span class="nowrap">[<i>n</i>, <i>A</i>, <i>B</i>, <i>C</i>, 0]</span>, where the 0 corresponds to the <i>x</i><sup>0</sup>&#160;=&#160;1 term, then the corresponding "mirror" sequence is <span class="nowrap">[<i>n</i>, <i>n</i> − <i>C</i>, <i>n</i> − <i>B</i>, <i>n</i> − <i>A</i>, 0]</span>. So the tap sequence <span class="nowrap">[32, 7, 3, 2, 0]</span> has as its counterpart <span class="nowrap">[32, 30, 29, 25, 0]</span>. Both give a maximum-length sequence.</p>
+<p>An example in <a href="/wiki/C_(programming_language)" title="C (programming language)">C</a> is below:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>
+<span class="cp"># include &lt;stdint.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint16_t</span> <span class="n">start_state</span> <span class="o">=</span> <span class="mh">0xACE1u</span><span class="p">;</span>  <span class="cm">/* Any nonzero start state will work. */</span>
+    <span class="kt">uint16_t</span> <span class="n">lfsr</span> <span class="o">=</span> <span class="n">start_state</span><span class="p">;</span>
+    <span class="kt">uint16_t</span> <span class="n">bit</span><span class="p">;</span>                    <span class="cm">/* Must be 16bit to allow bit&lt;&lt;15 later in the code */</span>
+    <span class="kt">unsigned</span> <span class="n">period</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">do</span>
+    <span class="p">{</span>
+        <span class="cm">/* taps: 16 14 13 11; feedback polynomial: x^16 + x^14 + x^13 + x^11 + 1 */</span>
+        <span class="n">bit</span>  <span class="o">=</span> <span class="p">((</span><span class="n">lfsr</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">lfsr</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">lfsr</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">lfsr</span> <span class="o">&gt;&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">lfsr</span> <span class="o">=</span>  <span class="p">(</span><span class="n">lfsr</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">bit</span> <span class="o">&lt;&lt;</span> <span class="mi">15</span><span class="p">);</span>
+        <span class="o">++</span><span class="n">period</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">lfsr</span> <span class="o">!=</span> <span class="n">start_state</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>If a fast <a href="/wiki/Parity_function" title="Parity function">parity</a> or <a href="/wiki/Popcount" class="mw-redirect" title="Popcount">popcount</a> operation is available, the feedback bit can be computed more efficiently as <code>bit = parity(lfsr &amp; 0x002Du)</code> or <code>bit = popcnt(lfsr &amp; 0x002Du) &amp; 1</code>, effectively computing the <a href="/wiki/Dot_product" title="Dot product">dot product</a> of the register with the characteristic polynomial.</p>
+<p>This LFSR configuration is also known as <b>standard</b>, <b>many-to-one</b> or <b>external XOR gates</b>. The alternative Galois configuration is described in the next section.</p>
+<h2><span class="mw-headline" id="Galois_LFSRs">Galois LFSRs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=2" title="Edit section: Galois LFSRs">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:395px;"><a href="/wiki/File:LFSR-G16.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d0/LFSR-G16.svg/393px-LFSR-G16.svg.png" width="393" height="120" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d0/LFSR-G16.svg/590px-LFSR-G16.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d0/LFSR-G16.svg/786px-LFSR-G16.svg.png 2x" data-file-width="393" data-file-height="120" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:LFSR-G16.svg" class="internal" title="Enlarge"></a></div>
+A 16-bit Galois LFSR. The register numbers above correspond to the same primitive polynomial as the Fibonacci example but are counted in reverse to the shifting direction. This register also cycles through the maximal number of 65535 states excluding the all-zeroes state. The state ACE1 hex shown will be followed by E270 hex.</div>
+</div>
+</div>
+<p>Named after the French mathematician <a href="/wiki/%C3%89variste_Galois" title="Évariste Galois">Évariste Galois</a>, an LFSR in Galois configuration, which is also known as <b>modular</b>, <b>internal XORs</b>, or <b>one-to-many LFSR</b>, is an alternate structure that can generate the same output stream as a conventional LFSR (but offset in time).<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup> In the Galois configuration, when the system is clocked, bits that are not taps are shifted one position to the right unchanged. The taps, on the other hand, are XORed with the output bit before they are stored in the next position. The new output bit is the next input bit. The effect of this is that when the output bit is zero, all the bits in the register shift to the right unchanged, and the input bit becomes zero. When the output bit is one, the bits in the tap positions all flip (if they are 0, they become 1, and if they are 1, they become 0), and then the entire register is shifted to the right and the input bit becomes 1.</p>
+<p>To generate the same output stream, the order of the taps is the <i>counterpart</i> (see above) of the order for the conventional LFSR, otherwise the stream will be in reverse. Note that the internal state of the LFSR is not necessarily the same. The Galois register shown has the same output stream as the Fibonacci register in the first section. A time offset exists between the streams, so a different startpoint will be needed to get the same output each cycle.</p>
+<ul>
+<li>Galois LFSRs do not concatenate every tap to produce the new input (the XORing is done within the LFSR, and no XOR gates are run in serial, therefore the propagation times are reduced to that of one XOR rather than a whole chain), thus it is possible for each tap to be computed in parallel, increasing the speed of execution.</li>
+<li>In a software implementation of an LFSR, the Galois form is more efficient, as the XOR operations can be implemented a word at a time: only the output bit must be examined individually.</li>
+</ul>
+<p>Below is a <a href="/wiki/C_(programming_language)" title="C (programming language)">C</a> code example for the 16-bit maximal-period Galois LFSR example in the figure:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>
+<span class="cp"># include &lt;stdint.h&gt;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">uint16_t</span> <span class="n">start_state</span> <span class="o">=</span> <span class="mh">0xACE1u</span><span class="p">;</span>  <span class="cm">/* Any nonzero start state will work. */</span>
+    <span class="kt">uint16_t</span> <span class="n">lfsr</span> <span class="o">=</span> <span class="n">start_state</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="n">period</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="kt">unsigned</span> <span class="n">lsb</span> <span class="o">=</span> <span class="n">lfsr</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">;</span>   <span class="cm">/* Get LSB (i.e., the output bit). */</span>
+        <span class="n">lfsr</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>                <span class="cm">/* Shift register */</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">lsb</span><span class="p">)</span>                   <span class="cm">/* If the output bit is 1, apply toggle mask. */</span>
+            <span class="n">lfsr</span> <span class="o">^=</span> <span class="mh">0xB400u</span><span class="p">;</span>
+        <span class="o">++</span><span class="n">period</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">lfsr</span> <span class="o">!=</span> <span class="n">start_state</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>Note that</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>
+        <span class="k">if</span> <span class="p">(</span><span class="n">lsb</span><span class="p">)</span>
+            <span class="n">lfsr</span> <span class="o">^=</span> <span class="mh">0xB400u</span><span class="p">;</span>
+</pre></div>
+<p>can also be written as</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>
+        <span class="n">lfsr</span> <span class="o">^=</span> <span class="p">(</span><span class="o">-</span><span class="n">lsb</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xB400u</span><span class="p">;</span>
+</pre></div>
+<p>which may produce more efficient code on some compilers.</p>
+<h3><span class="mw-headline" id="Non-binary_Galois_LFSR">Non-binary Galois LFSR</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=3" title="Edit section: Non-binary Galois LFSR">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Binary Galois LFSRs like the ones shown above can be generalized to any <i>q</i>-ary alphabet {0, 1, ..., <i>q</i>&#160;−&#160;1} (e.g., for binary, <i>q</i> = 2, and the alphabet is simply {0, 1}). In this case, the exclusive-or component is generalized to addition <a href="/wiki/Modular_arithmetic" title="Modular arithmetic">modulo</a>-<i>q</i> (note that XOR is addition modulo 2), and the feedback bit (output bit) is multiplied (modulo-<i>q</i>) by a <i>q</i>-ary value, which is constant for each specific tap point. Note that this is also a generalization of the binary case, where the feedback is multiplied by either 0 (no feedback, i.e., no tap) or 1 (feedback is present). Given an appropriate tap configuration, such LFSRs can be used to generate <a href="/wiki/Finite_field" title="Finite field">Galois fields</a> for arbitrary prime values of <i>q</i>.</p>
+<h2><span class="mw-headline" id="Matrix_forms">Matrix forms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=4" title="Edit section: Matrix forms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Binary LFSRs of both Fibonacci and Galois configurations can be expressed as linear functions using matrices in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {F} _{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">F</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {F} _{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fde97f1e971e76227cd0aac645b7b0901d7b668d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.475ex; height:2.509ex;" alt="\mathbb {F} _{2}" /></span>.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup> Denoting the <a href="/wiki/Companion_matrix" title="Companion matrix">companion matrix</a> of the characteristic polynomial of the LFSR as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle C}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>C</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle C}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4fc55753007cd3c18576f7933f6f089196732029" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.766ex; height:2.176ex;" alt="C" /></span> and the seed as a column vector <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (a_{0},a_{1},\dots ,a_{n-1})^{\mathrm {T} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">T</mi>
+            </mrow>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (a_{0},a_{1},\dots ,a_{n-1})^{\mathrm {T} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7afe5317c6b801675732464d09c3d58081534b44" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:18.557ex; height:3.176ex;" alt="{\displaystyle (a_{0},a_{1},\dots ,a_{n-1})^{\mathrm {T} }}" /></span>, the state of the register in Galois configuration after <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k" /></span> steps is given by</p>
+<dl>
+<dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{pmatrix}a_{kn}\\a_{kn+1}\\a_{kn+2}\\\vdots \\a_{kn+n-1}\end{pmatrix}}={\begin{pmatrix}0&amp;0&amp;\cdots &amp;0&amp;c_{0}\\1&amp;0&amp;\cdots &amp;0&amp;c_{1}\\0&amp;1&amp;\cdots &amp;0&amp;c_{2}\\\vdots &amp;\vdots &amp;\ddots &amp;\vdots &amp;\vdots \\0&amp;0&amp;\cdots &amp;1&amp;c_{n-1}\end{pmatrix}}{\begin{pmatrix}a_{(k-1)n}\\a_{(k-1)n+1}\\a_{(k-1)n+2}\\\vdots \\a_{(k-1)n+n-1}\end{pmatrix}}={\begin{pmatrix}0&amp;0&amp;\cdots &amp;0&amp;c_{0}\\1&amp;0&amp;\cdots &amp;0&amp;c_{1}\\0&amp;1&amp;\cdots &amp;0&amp;c_{2}\\\vdots &amp;\vdots &amp;\ddots &amp;\vdots &amp;\vdots \\0&amp;0&amp;\cdots &amp;1&amp;c_{n-1}\end{pmatrix}}^{k}{\begin{pmatrix}a_{0}\\a_{1}\\a_{2}\\\vdots \\a_{n-1}\end{pmatrix}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>k</mi>
+                      <mi>n</mi>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>k</mi>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>k</mi>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>&#x22EE;<!-- ⋮ --></mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>k</mi>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mi>n</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mo>&#x22EF;<!-- ⋯ --></mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>c</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>0</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mo>&#x22EF;<!-- ⋯ --></mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>c</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mo>&#x22EF;<!-- ⋯ --></mo>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>c</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>&#x22EE;<!-- ⋮ --></mo>
+                </mtd>
+                <mtd>
+                  <mo>&#x22EE;<!-- ⋮ --></mo>
+                </mtd>
+                <mtd>
+                  <mo>&#x22F1;<!-- ⋱ --></mo>
+                </mtd>
+                <mtd>
+                  <mo>&#x22EE;<!-- ⋮ --></mo>
+                </mtd>
+                <mtd>
+                  <mo>&#x22EE;<!-- ⋮ --></mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mo>&#x22EF;<!-- ⋯ --></mo>
+                </mtd>
+                <mtd>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <msub>
+                    <mi>c</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>n</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">(</mo>
+                      <mi>k</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                      <mo stretchy="false">)</mo>
+                      <mi>n</mi>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">(</mo>
+                      <mi>k</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                      <mo stretchy="false">)</mo>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">(</mo>
+                      <mi>k</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                      <mo stretchy="false">)</mo>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>&#x22EE;<!-- ⋮ --></mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mo stretchy="false">(</mo>
+                      <mi>k</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                      <mo stretchy="false">)</mo>
+                      <mi>n</mi>
+                      <mo>+</mo>
+                      <mi>n</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow>
+              <mo>(</mo>
+              <mtable rowspacing="4pt" columnspacing="1em">
+                <mtr>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <mo>&#x22EF;<!-- ⋯ --></mo>
+                  </mtd>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <msub>
+                      <mi>c</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mn>0</mn>
+                      </mrow>
+                    </msub>
+                  </mtd>
+                </mtr>
+                <mtr>
+                  <mtd>
+                    <mn>1</mn>
+                  </mtd>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <mo>&#x22EF;<!-- ⋯ --></mo>
+                  </mtd>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <msub>
+                      <mi>c</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mn>1</mn>
+                      </mrow>
+                    </msub>
+                  </mtd>
+                </mtr>
+                <mtr>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <mn>1</mn>
+                  </mtd>
+                  <mtd>
+                    <mo>&#x22EF;<!-- ⋯ --></mo>
+                  </mtd>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <msub>
+                      <mi>c</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mn>2</mn>
+                      </mrow>
+                    </msub>
+                  </mtd>
+                </mtr>
+                <mtr>
+                  <mtd>
+                    <mo>&#x22EE;<!-- ⋮ --></mo>
+                  </mtd>
+                  <mtd>
+                    <mo>&#x22EE;<!-- ⋮ --></mo>
+                  </mtd>
+                  <mtd>
+                    <mo>&#x22F1;<!-- ⋱ --></mo>
+                  </mtd>
+                  <mtd>
+                    <mo>&#x22EE;<!-- ⋮ --></mo>
+                  </mtd>
+                  <mtd>
+                    <mo>&#x22EE;<!-- ⋮ --></mo>
+                  </mtd>
+                </mtr>
+                <mtr>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <mn>0</mn>
+                  </mtd>
+                  <mtd>
+                    <mo>&#x22EF;<!-- ⋯ --></mo>
+                  </mtd>
+                  <mtd>
+                    <mn>1</mn>
+                  </mtd>
+                  <mtd>
+                    <msub>
+                      <mi>c</mi>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mi>n</mi>
+                        <mo>&#x2212;<!-- − --></mo>
+                        <mn>1</mn>
+                      </mrow>
+                    </msub>
+                  </mtd>
+                </mtr>
+              </mtable>
+              <mo>)</mo>
+            </mrow>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>(</mo>
+            <mtable rowspacing="4pt" columnspacing="1em">
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>0</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mo>&#x22EE;<!-- ⋮ --></mo>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>a</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>n</mi>
+                      <mo>&#x2212;<!-- − --></mo>
+                      <mn>1</mn>
+                    </mrow>
+                  </msub>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{pmatrix}a_{kn}\\a_{kn+1}\\a_{kn+2}\\\vdots \\a_{kn+n-1}\end{pmatrix}}={\begin{pmatrix}0&amp;0&amp;\cdots &amp;0&amp;c_{0}\\1&amp;0&amp;\cdots &amp;0&amp;c_{1}\\0&amp;1&amp;\cdots &amp;0&amp;c_{2}\\\vdots &amp;\vdots &amp;\ddots &amp;\vdots &amp;\vdots \\0&amp;0&amp;\cdots &amp;1&amp;c_{n-1}\end{pmatrix}}{\begin{pmatrix}a_{(k-1)n}\\a_{(k-1)n+1}\\a_{(k-1)n+2}\\\vdots \\a_{(k-1)n+n-1}\end{pmatrix}}={\begin{pmatrix}0&amp;0&amp;\cdots &amp;0&amp;c_{0}\\1&amp;0&amp;\cdots &amp;0&amp;c_{1}\\0&amp;1&amp;\cdots &amp;0&amp;c_{2}\\\vdots &amp;\vdots &amp;\ddots &amp;\vdots &amp;\vdots \\0&amp;0&amp;\cdots &amp;1&amp;c_{n-1}\end{pmatrix}}^{k}{\begin{pmatrix}a_{0}\\a_{1}\\a_{2}\\\vdots \\a_{n-1}\end{pmatrix}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b6e230fcbab06e102fc8011cd335275b73080b2c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -8.671ex; width:94.811ex; height:18.509ex;" alt="{\displaystyle {\begin{pmatrix}a_{kn}\\a_{kn+1}\\a_{kn+2}\\\vdots \\a_{kn+n-1}\end{pmatrix}}={\begin{pmatrix}0&amp;0&amp;\cdots &amp;0&amp;c_{0}\\1&amp;0&amp;\cdots &amp;0&amp;c_{1}\\0&amp;1&amp;\cdots &amp;0&amp;c_{2}\\\vdots &amp;\vdots &amp;\ddots &amp;\vdots &amp;\vdots \\0&amp;0&amp;\cdots &amp;1&amp;c_{n-1}\end{pmatrix}}{\begin{pmatrix}a_{(k-1)n}\\a_{(k-1)n+1}\\a_{(k-1)n+2}\\\vdots \\a_{(k-1)n+n-1}\end{pmatrix}}={\begin{pmatrix}0&amp;0&amp;\cdots &amp;0&amp;c_{0}\\1&amp;0&amp;\cdots &amp;0&amp;c_{1}\\0&amp;1&amp;\cdots &amp;0&amp;c_{2}\\\vdots &amp;\vdots &amp;\ddots &amp;\vdots &amp;\vdots \\0&amp;0&amp;\cdots &amp;1&amp;c_{n-1}\end{pmatrix}}^{k}{\begin{pmatrix}a_{0}\\a_{1}\\a_{2}\\\vdots \\a_{n-1}\end{pmatrix}}}" /></span></dd>
+</dl>
+<p>The <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k" /></span>th state of the register in Fibonacci configuration is given by using <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle C^{\mathrm {T} }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>C</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="normal">T</mi>
+            </mrow>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle C^{\mathrm {T} }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3e25cf9550a9d6bac4735defe7d87dff76517149" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:3.217ex; height:2.676ex;" alt="{\displaystyle C^{\mathrm {T} }}" /></span> in place of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle C}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>C</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle C}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4fc55753007cd3c18576f7933f6f089196732029" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.766ex; height:2.176ex;" alt="C" /></span>. The <a href="/wiki/Transpose" title="Transpose">transpose</a> operation on the companion matrix is equivalent to using the reciprocal polynomial, and thus the generated bit sequence in this form proceeds in the same direction.</p>
+<p>This form generalizes naturally to arbitrary fields for both configurations of LFSR.</p>
+<h2><span class="mw-headline" id="Some_polynomials_for_maximal_LFSRs">Some polynomials for maximal LFSRs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=5" title="Edit section: Some polynomials for maximal LFSRs">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The following table lists maximal-length polynomials for shift-register lengths up to 24. Note that more than one maximal-length polynomial may exist for any given shift-register length. A list of alternative maximal-length polynomials for shift-register lengths 4–32 (beyond which it becomes unfeasible to store or transfer them) can be found here: <a rel="nofollow" class="external free" href="http://www.ece.cmu.edu/~koopman/lfsr/index.html">http://www.ece.cmu.edu/~koopman/lfsr/index.html</a>.</p>
+<table class="wikitable" style="text-align:right">
+<tr>
+<th>Bits (n)</th>
+<th>Feedback polynomial</th>
+<th>Period (<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2^{n}-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{n}-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/51e4bd4ef2f9549d026cbf643a91c0d12a8c6794" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:6.384ex; height:2.509ex;" alt="2^{n}-1" /></span>)</th>
+</tr>
+<tr>
+<th>2</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{2}+x+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{2}+x+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/78235883dfed13f5c0c7b6fb5aa82c002a1ac649" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:10.557ex; height:2.843ex;" alt="x^{2}+x+1" /></span></td>
+<td>3</td>
+</tr>
+<tr>
+<th>3</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{3}+x^{2}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{3}+x^{2}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bbff8a0a4c214e6dbad5b51ed4470de8d1de7dd0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:11.611ex; height:2.843ex;" alt="x^{3}+x^{2}+1" /></span></td>
+<td>7</td>
+</tr>
+<tr>
+<th>4</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{4}+x^{3}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{4}+x^{3}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dbff651722870859b6a5cd39a46c0915c503a7f9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:11.611ex; height:2.843ex;" alt="x^{4}+x^{3}+1" /></span></td>
+<td>15</td>
+</tr>
+<tr>
+<th>5</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{5}+x^{3}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>5</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{5}+x^{3}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a78f0ad5075caf1e409c0e6f19d9622e30ec532f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:11.611ex; height:2.843ex;" alt="x^{{5}}+x^{{3}}+1" /></span></td>
+<td>31</td>
+</tr>
+<tr>
+<th>6</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{6}+x^{5}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>6</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>5</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{6}+x^{5}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b10a6c0e15848157e0cf815533bb11ccb88b2b4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:11.611ex; height:2.843ex;" alt="x^{{6}}+x^{{5}}+1" /></span></td>
+<td>63</td>
+</tr>
+<tr>
+<th>7</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{7}+x^{6}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>7</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>6</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{7}+x^{6}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c44d4dee87784933e67ae11593de24d38262b8c5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:11.611ex; height:2.843ex;" alt="x^{{7}}+x^{{6}}+1" /></span></td>
+<td>127</td>
+</tr>
+<tr>
+<th>8</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{8}+x^{6}+x^{5}+x^{4}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>8</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>6</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>5</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{8}+x^{6}+x^{5}+x^{4}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/69f8902820371a2ae767423288b028248eb87090" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:22.06ex; height:2.843ex;" alt="x^{{8}}+x^{{6}}+x^{{5}}+x^{{4}}+1" /></span></td>
+<td>255</td>
+</tr>
+<tr>
+<th>9</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{9}+x^{5}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>9</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>5</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{9}+x^{5}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bfc67e9369a29c4f493d49253d467beedc0d888e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:11.611ex; height:2.843ex;" alt="x^{{9}}+x^{{5}}+1" /></span></td>
+<td>511</td>
+</tr>
+<tr>
+<th>10</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{10}+x^{7}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>10</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>7</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{10}+x^{7}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9081e28588c119673cc5866ff6cfc1606bf70c8a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:12.433ex; height:2.843ex;" alt="x^{{10}}+x^{{7}}+1" /></span></td>
+<td>1,023</td>
+</tr>
+<tr>
+<th>11</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{11}+x^{9}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>11</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>9</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{11}+x^{9}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65f885b4ff765648bf042aa7a7c450294bce5b28" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:12.433ex; height:2.843ex;" alt="x^{{11}}+x^{{9}}+1" /></span></td>
+<td>2,047</td>
+</tr>
+<tr>
+<th>12</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{12}+x^{11}+x^{10}+x^{4}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>12</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>11</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>10</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{12}+x^{11}+x^{10}+x^{4}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/130a7daad52f730ad4457278bfcbf10b525eecb0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:24.526ex; height:2.843ex;" alt="x^{{12}}+x^{{11}}+x^{{10}}+x^{{4}}+1" /></span></td>
+<td>4,095</td>
+</tr>
+<tr>
+<th>13</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{13}+x^{12}+x^{11}+x^{8}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>13</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>12</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>11</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>8</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{13}+x^{12}+x^{11}+x^{8}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8b59da93b477ee4ddbcb6fedd0db1e4d540c2ef3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:24.526ex; height:2.843ex;" alt="x^{{13}}+x^{{12}}+x^{{11}}+x^{{8}}+1" /></span></td>
+<td>8,191</td>
+</tr>
+<tr>
+<th>14</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{14}+x^{13}+x^{12}+x^{2}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>14</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>13</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>12</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{14}+x^{13}+x^{12}+x^{2}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/372ad3e7f55aa814819417b316f1d8bad092450b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:24.526ex; height:2.843ex;" alt="x^{{14}}+x^{{13}}+x^{{12}}+x^{{2}}+1" /></span></td>
+<td>16,383</td>
+</tr>
+<tr>
+<th>15</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{15}+x^{14}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>15</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>14</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{15}+x^{14}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e93c42610cdf94fffcb3fddc78fc80b8c9631647" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:13.255ex; height:2.843ex;" alt="x^{{15}}+x^{{14}}+1" /></span></td>
+<td>32,767</td>
+</tr>
+<tr>
+<th>16</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{16}+x^{15}+x^{13}+x^{4}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>16</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>15</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>13</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>4</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{16}+x^{15}+x^{13}+x^{4}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0614dd0d8f82fe8220189d22bb9d97d7d8b087b9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:24.526ex; height:2.843ex;" alt="{\displaystyle x^{16}+x^{15}+x^{13}+x^{4}+1}" /></span></td>
+<td>65,535</td>
+</tr>
+<tr>
+<th>17</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{17}+x^{14}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>17</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>14</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{17}+x^{14}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/967377c40db450cb5b8c9ada61b2bf65d6f30e55" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:13.255ex; height:2.843ex;" alt="x^{{17}}+x^{{14}}+1" /></span></td>
+<td>131,071</td>
+</tr>
+<tr>
+<th>18</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{18}+x^{11}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>18</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>11</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{18}+x^{11}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/818b27497ec95c9b5490c11fb6a4752c25b998c7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:13.255ex; height:2.843ex;" alt="x^{{18}}+x^{{11}}+1" /></span></td>
+<td>262,143</td>
+</tr>
+<tr>
+<th>19</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{19}+x^{18}+x^{17}+x^{14}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>19</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>18</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>17</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>14</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{19}+x^{18}+x^{17}+x^{14}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6babbd8e322ee8ab5a3f44a2bc9618cc91f2445a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:25.348ex; height:2.843ex;" alt="x^{{19}}+x^{{18}}+x^{{17}}+x^{{14}}+1" /></span></td>
+<td>524,287</td>
+</tr>
+<tr>
+<th>20</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{20}+x^{17}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>20</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>17</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{20}+x^{17}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/baa3673d1669f3f463fe3293d2588fbcb66e0c61" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:13.255ex; height:2.843ex;" alt="{\displaystyle x^{20}+x^{17}+1}" /></span></td>
+<td>1,048,575</td>
+</tr>
+<tr>
+<th>21</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{21}+x^{19}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>21</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>19</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{21}+x^{19}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fe47206fd7d7fa2223bdfbeb2e94e7b4a25d3939" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:13.255ex; height:2.843ex;" alt="{\displaystyle x^{21}+x^{19}+1}" /></span></td>
+<td>2,097,151</td>
+</tr>
+<tr>
+<th>22</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{22}+x^{21}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>22</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>21</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{22}+x^{21}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a8e701eeb55c3e5f73173fbade0020cca8eb8436" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:13.255ex; height:2.843ex;" alt="{\displaystyle x^{22}+x^{21}+1}" /></span></td>
+<td>4,194,303</td>
+</tr>
+<tr>
+<th>23</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{23}+x^{18}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>23</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>18</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{23}+x^{18}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/282df3f61d62fbe6d39285e15f59eee18c17bbd6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:13.255ex; height:2.843ex;" alt="{\displaystyle x^{23}+x^{18}+1}" /></span></td>
+<td>8,388,607</td>
+</tr>
+<tr>
+<th>24</th>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{24}+x^{23}+x^{22}+x^{17}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>24</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>23</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>22</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>17</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{24}+x^{23}+x^{22}+x^{17}+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ca79bd2e2bc915fbf1d57c0a3ffd08cbe978038a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:25.348ex; height:2.843ex;" alt="{\displaystyle x^{24}+x^{23}+x^{22}+x^{17}+1}" /></span></td>
+<td>16,777,215</td>
+</tr>
+<tr>
+<th>3–168</th>
+<td><a rel="nofollow" class="external autonumber" href="http://www.xilinx.com/support/documentation/application_notes/xapp052.pdf">[2]</a></td>
+<td></td>
+</tr>
+<tr>
+<th>2–786,<br />
+1024,<br />
+2048,<br />
+4096</th>
+<td><a rel="nofollow" class="external autonumber" href="https://web.archive.org/web/20161007061934/http://courses.cse.tamu.edu/csce680/walker/lfsr_table.pdf">[3]</a></td>
+<td></td>
+</tr>
+</table>
+<h2><span class="mw-headline" id="Output-stream_properties">Output-stream properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=6" title="Edit section: Output-stream properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li>Ones and zeroes occur in "runs". The output stream 1110010, for example, consists of four runs of lengths 3, 2, 1, 1, in order. In one period of a maximal LFSR, 2<sup><i>n</i>−1</sup> runs occur (for example, a six-bit LFSR has 32 runs). Exactly half of these runs are one bit long, a quarter are two bits long, up to two runs of zeroes <i>n</i>&#160;−&#160;1 bits long, and a single run of ones <i>n</i> bits long. This distribution almost equals the statistical <a href="/wiki/Expected_value" title="Expected value">expectation value</a> for a truly random sequence. However, the probability of finding exactly this distribution in a sample of a truly random sequence is rather low<sup class="noprint Inline-Template" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Vagueness" title="Wikipedia:Vagueness"><span title="This information is too vague. (April 2013)">vague</span></a></i>]</sup>.</li>
+<li>LFSR output streams are <a href="/wiki/Deterministic" class="mw-redirect" title="Deterministic">deterministic</a>. If the present state and the positions of the XOR gates in the LFSR are known, the next state can be predicted.<sup id="cite_ref-xilinx.com_5-0" class="reference"><a href="#cite_note-xilinx.com-5">[5]</a></sup> This is not possible with truly random events. With maximal-length LFSRs, it is much easier to compute the next state, as there are only an easily limited number of them for each length.</li>
+<li>The output stream is reversible; an LFSR with mirrored taps will cycle through the output sequence in reverse order.</li>
+<li>The value consisting of all zeros cannot appear. Thus an LFSR of length <i>n</i> cannot be used to generate all 2<sup><i>n</i></sup> values.</li>
+</ul>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=7" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>LFSRs can be implemented in hardware, and this makes them useful in applications that require very fast generation of a pseudo-random sequence, such as <a href="/wiki/Direct-sequence_spread_spectrum" title="Direct-sequence spread spectrum">direct-sequence spread spectrum</a> radio. LFSRs have also been used for generating an approximation of <a href="/wiki/White_noise" title="White noise">white noise</a> in various <a href="/wiki/Programmable_sound_generator" title="Programmable sound generator">programmable sound generators</a>.</p>
+<h3><span class="mw-headline" id="Uses_as_counters">Uses as counters</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=8" title="Edit section: Uses as counters">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The repeating sequence of states of an LFSR allows it to be used as a <a href="/wiki/Clock_divider" class="mw-redirect" title="Clock divider">clock divider</a> or as a counter when a non-binary sequence is acceptable, as is often the case where computer index or framing locations need to be machine-readable.<sup id="cite_ref-xilinx.com_5-1" class="reference"><a href="#cite_note-xilinx.com-5">[5]</a></sup> LFSR <a href="/wiki/Counter_(digital)" title="Counter (digital)">counters</a> have simpler feedback logic than natural binary counters or <a href="/wiki/Gray-code_counter" class="mw-redirect" title="Gray-code counter">Gray-code counters</a>, and therefore can operate at higher clock rates. However, it is necessary to ensure that the LFSR never enters an all-zeros state, for example by presetting it at start-up to any other state in the sequence. The table of primitive polynomials shows how LFSRs can be arranged in Fibonacci or Galois form to give maximal periods. One can obtain any other period by adding to an LFSR that has a longer period some logic that shortens the sequence by skipping some states.</p>
+<h3><span class="mw-headline" id="Uses_in_cryptography">Uses in cryptography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=9" title="Edit section: Uses in cryptography">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>LFSRs have long been used as <a href="/wiki/Pseudo-random_number_generator" class="mw-redirect" title="Pseudo-random number generator">pseudo-random number generators</a> for use in <a href="/wiki/Stream_cipher" title="Stream cipher">stream ciphers</a> (especially in <a href="/wiki/Military" title="Military">military</a> <a href="/wiki/Cryptography" title="Cryptography">cryptography</a>), due to the ease of construction from simple <a href="/wiki/Electromechanical" class="mw-redirect" title="Electromechanical">electromechanical</a> or <a href="/wiki/Electronic_circuits" class="mw-redirect" title="Electronic circuits">electronic circuits</a>, long <a href="/wiki/Periodic_function" title="Periodic function">periods</a>, and very uniformly <a href="/wiki/Probability_distribution" title="Probability distribution">distributed</a> output streams. However, an LFSR is a linear system, leading to fairly easy <a href="/wiki/Cryptanalysis" title="Cryptanalysis">cryptanalysis</a>. For example, given a stretch of known plaintext and corresponding ciphertext, an attacker can intercept and recover a stretch of LFSR output stream used in the system described, and from that stretch of the output stream can construct an LFSR of minimal size that simulates the intended receiver by using the <a href="/wiki/Berlekamp-Massey_algorithm" class="mw-redirect" title="Berlekamp-Massey algorithm">Berlekamp-Massey algorithm</a>. This LFSR can then be fed the intercepted stretch of output stream to recover the remaining plaintext.</p>
+<p>Three general methods are employed to reduce this problem in LFSR-based stream ciphers:</p>
+<ul>
+<li><a href="/wiki/Non-linear" class="mw-redirect" title="Non-linear">Non-linear</a> combination of several <a href="/wiki/Bit" title="Bit">bits</a> from the LFSR <a href="/wiki/State_(computer_science)" title="State (computer science)">state</a>;</li>
+<li>Non-linear combination of the output bits of two or more LFSRs (see also: <a href="/wiki/Shrinking_generator" title="Shrinking generator">shrinking generator</a>); or using <a href="/wiki/Evolutionary_algorithm" title="Evolutionary algorithm">Evolutionary algorithm</a> to introduce non-linearity.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup></li>
+<li>Irregular clocking of the LFSR, as in the <a href="/wiki/Alternating_step_generator" title="Alternating step generator">alternating step generator</a>.</li>
+</ul>
+<p>Important LFSR-based stream ciphers include <a href="/wiki/A5/1" title="A5/1">A5/1</a> and <a href="/wiki/A5/2" title="A5/2">A5/2</a>, used in <a href="/wiki/GSM" title="GSM">GSM</a> cell phones, <a href="/wiki/E0_(cipher)" title="E0 (cipher)">E0</a>, used in <a href="/wiki/Bluetooth" title="Bluetooth">Bluetooth</a>, and the <a href="/wiki/Shrinking_generator" title="Shrinking generator">shrinking generator</a>. The A5/2 cipher has been broken and both A5/1 and E0 have serious weaknesses.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup></p>
+<p>The linear feedback shift register has a strong relationship to <a href="/wiki/Linear_congruential_generator" title="Linear congruential generator">linear congruential generators</a>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup></p>
+<h3><span class="mw-headline" id="Uses_in_circuit_testing">Uses in circuit testing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=10" title="Edit section: Uses in circuit testing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="plainlinks metadata ambox ambox-content ambox-Unreferenced" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><a href="/wiki/File:Question_book-new.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="512" data-file-height="399" /></a></div>
+</td>
+<td class="mbox-text">
+<div class="mbox-text-span">This section <b>does not <a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">cite</a> any <a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">sources</a></b>. <span class="hide-when-compact">Please help <a class="external text" href="//en.wikipedia.org/w/index.php?title=Linear-feedback_shift_register&amp;action=edit">improve this section</a> by <a href="/wiki/Help:Introduction_to_referencing_with_Wiki_Markup/1" title="Help:Introduction to referencing with Wiki Markup/1">adding citations to reliable sources</a>. Unsourced material may be challenged and <a href="/wiki/Wikipedia:Verifiability#Burden_of_evidence" title="Wikipedia:Verifiability">removed</a>.</span> <small><i>(May 2016)</i></small> <small class="hide-when-compact"><i>(<a href="/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a>)</i></small></div>
+</td>
+</tr>
+</table>
+<p>LFSRs are used in circuit testing for test-pattern generation (for exhaustive testing, pseudo-random testing or pseudo-exhaustive testing) and for signature analysis.</p>
+<h4><span class="mw-headline" id="Test-pattern_generation">Test-pattern generation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=11" title="Edit section: Test-pattern generation">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Complete LFSR are commonly used as pattern generators for exhaustive testing, since they cover all possible inputs for an <i>n</i>-input circuit. Maximal-length LFSRs and weighted LFSRs are widely used as pseudo-random test-pattern generators for pseudo-random test applications.</p>
+<h4><span class="mw-headline" id="Signature_analysis">Signature analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=12" title="Edit section: Signature analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>In <a href="/wiki/Built-in_self-test" title="Built-in self-test">built-in self-test</a> (BIST) techniques, storing all the circuit outputs on chip is not possible, but the circuit output can be compressed to form a signature that will later be compared to the golden signature (of the good circuit) to detect faults. Since this compression is lossy, there is always a possibility that a faulty output also generates the same signature as the golden signature and the faults cannot be detected. This condition is called error masking or aliasing. BIST is accomplished with a multiple-input signature register (MISR or MSR), which is a type of LFSR. A standard LFSR has a single XOR or XNOR gate, where the input of the gate is connected to several "taps" and the output is connected to the input of the first flip-flop. A MISR has the same structure, but the input to every flip-flop is fed through an XOR/XNOR gate. For example, a 4-bit MISR has a 4-bit parallel output and a 4-bit parallel input. The input of the first flip-flop is XOR/XNORd with parallel input bit zero and the "taps". Every other flip-flop input is XOR/XNORd with the preceding flip-flop output and the corresponding parallel input bit. Consequently, the next state of the MISR depends on the last several states opposed to just the current state. Therefore, a MISR will always generate the same golden signature given that the input sequence is the same every time.</p>
+<h3><span class="mw-headline" id="Uses_in_digital_broadcasting_and_communications">Uses in digital broadcasting and communications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=13" title="Edit section: Uses in digital broadcasting and communications">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h4><span class="mw-headline" id="Scrambling">Scrambling</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=14" title="Edit section: Scrambling">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div role="note" class="hatnote navigation-not-searchable">Main article: <a href="/wiki/Scrambler" title="Scrambler">Scrambler</a></div>
+<p>To prevent short repeating sequences (e.g., runs of 0s or 1s) from forming spectral lines that may complicate symbol tracking at the receiver or interfere with other transmissions, the data bit sequence is combined with the output of a linear-feedback register before modulation and transmission. This scrambling is removed at the receiver after demodulation. When the LFSR runs at the same <a href="/wiki/Bit_rate" title="Bit rate">bit rate</a> as the transmitted symbol stream, this technique is referred to as <a href="/wiki/Scrambler" title="Scrambler">scrambling</a>. When the LFSR runs considerably faster than the symbol stream, the LFSR-generated bit sequence is called <i>chipping code</i>. The chipping code is combined with the data using <a href="/wiki/Exclusive_or" title="Exclusive or">exclusive or</a> before transmitting using <a href="/wiki/Binary_phase-shift_keying" class="mw-redirect" title="Binary phase-shift keying">binary phase-shift keying</a> or a similar modulation method. The resulting signal has a higher bandwidth than the data, and therefore this is a method of <a href="/wiki/Spread-spectrum" class="mw-redirect" title="Spread-spectrum">spread-spectrum</a> communication. When used only for the spread-spectrum property, this technique is called <a href="/wiki/Direct-sequence_spread_spectrum" title="Direct-sequence spread spectrum">direct-sequence spread spectrum</a>; when used to distinguish several signals transmitted in the same channel at the same time and frequency, it is called <a href="/wiki/Code_division_multiple_access" class="mw-redirect" title="Code division multiple access">code division multiple access</a>.</p>
+<p>Neither scheme should be confused with <a href="/wiki/Encryption" title="Encryption">encryption</a> or <a href="/wiki/Encipherment" class="mw-redirect" title="Encipherment">encipherment</a>; scrambling and spreading with LFSRs do <i>not</i> protect the information from eavesdropping. They are instead used to produce equivalent streams that possess convenient engineering properties to allow robust and efficient modulation and demodulation.</p>
+<p>Digital broadcasting systems that use linear-feedback registers:</p>
+<ul>
+<li><a href="/wiki/ATSC_Standards" class="mw-redirect" title="ATSC Standards">ATSC Standards</a> (digital TV transmission system – North America)</li>
+<li><a href="/wiki/Digital_Audio_Broadcasting" class="mw-redirect" title="Digital Audio Broadcasting">DAB</a> (<a href="/wiki/Digital_Audio_Broadcasting" class="mw-redirect" title="Digital Audio Broadcasting">Digital Audio Broadcasting</a> system – for radio)</li>
+<li><a href="/wiki/DVB-T" title="DVB-T">DVB-T</a> (digital TV transmission system – Europe, Australia, parts of Asia)</li>
+<li><a href="/wiki/NICAM" title="NICAM">NICAM</a> (digital audio system for television)</li>
+</ul>
+<p>Other digital communications systems using LFSRs:</p>
+<ul>
+<li>INTELSAT business service (IBS)</li>
+<li>Intermediate data rate (IDR)</li>
+<li><a href="/wiki/Serial_digital_interface" title="Serial digital interface">SDI</a> (Serial Digital Interface transmission)</li>
+<li>Data transfer over <a href="/wiki/PSTN" class="mw-redirect" title="PSTN">PSTN</a> (according to the <a href="/wiki/ITU-T" title="ITU-T">ITU-T</a> V-series recommendations)</li>
+<li><a href="/wiki/CDMA" class="mw-redirect" title="CDMA">CDMA</a> (Code Division Multiple Access) cellular telephony</li>
+<li><a href="/wiki/Fast_Ethernet#100BASE-T2" title="Fast Ethernet">100BASE-T2 "fast" Ethernet</a> scrambles bits using an LFSR</li>
+<li><a href="/wiki/Gigabit_Ethernet#1000BASE-T" title="Gigabit Ethernet">1000BASE-T Ethernet</a>, the most common form of Gigabit Ethernet, scrambles bits using an LFSR</li>
+<li><a href="/wiki/PCI_Express" title="PCI Express">PCI Express</a> 3.0</li>
+<li><a href="/wiki/SATA" class="mw-redirect" title="SATA">SATA</a><sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup></li>
+<li><a href="/wiki/Serial_attached_SCSI" class="mw-redirect" title="Serial attached SCSI">Serial attached SCSI</a> (SAS/SPL)</li>
+<li><a href="/wiki/USB_3.0" title="USB 3.0">USB 3.0</a></li>
+<li><a href="/wiki/IEEE_802.11a" class="mw-redirect" title="IEEE 802.11a">IEEE 802.11a</a> scrambles bits using an LFSR</li>
+<li><a href="/wiki/Bluetooth_Low_Energy" title="Bluetooth Low Energy">Bluetooth Low Energy</a> Link Layer is making use of LFSR (referred to as whitening)</li>
+<li><a href="/wiki/Satellite_navigation_system" class="mw-redirect" title="Satellite navigation system">Satellite navigation systems</a> such as <a href="/wiki/GPS" class="mw-redirect" title="GPS">GPS</a> and <a href="/wiki/GLONASS" title="GLONASS">GLONASS</a>. All current systems use LFSR outputs to generate some or all of their ranging codes (as the chipping code for CDMA or DSSS) or to modulate the carrier without data (like GPS&#160;L2&#160;CL ranging code). GLONASS also uses <a href="/wiki/Frequency-division_multiple_access" title="Frequency-division multiple access">frequency-division multiple access</a> combined with DSSS.</li>
+</ul>
+<h4><span class="mw-headline" id="Other_uses">Other uses</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=15" title="Edit section: Other uses">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>LFSRs are also used in <a href="/wiki/Radio_jamming" title="Radio jamming">radio jamming</a> systems to generate pseudo-random noise to raise the noise floor of a target communication system.</p>
+<p>The German time signal <a href="/wiki/DCF77" title="DCF77">DCF77</a>, in addition to amplitude keying, employs <a href="/wiki/Phase-shift_keying" title="Phase-shift keying">phase-shift keying</a> driven by a 9-stage LFSR to increase the accuracy of received time and the robustness of the data stream in the presence of noise.<sup id="cite_ref-phasemod_11-0" class="reference"><a href="#cite_note-phasemod-11">[11]</a></sup></p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=16" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/Pinwheel_(cryptography)" title="Pinwheel (cryptography)">Pinwheel</a></li>
+<li><a href="/wiki/Mersenne_twister" class="mw-redirect" title="Mersenne twister">Mersenne twister</a></li>
+<li><a href="/wiki/Maximum_length_sequence" title="Maximum length sequence">Maximum length sequence</a></li>
+<li><a href="/wiki/Analog_feedback_shift_register" title="Analog feedback shift register">Analog feedback shift register</a></li>
+<li><a href="/wiki/NLFSR" class="mw-redirect" title="NLFSR">NLFSR</a>, Non-Linear Feedback Shift Register</li>
+<li><a href="/wiki/Ring_counter" title="Ring counter">Ring counter</a></li>
+<li><a href="/wiki/Pseudo-random_binary_sequence" class="mw-redirect" title="Pseudo-random binary sequence">Pseudo-random binary sequence</a></li>
+</ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=17" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><cite class="citation web">Geremia, Patrick. <a rel="nofollow" class="external text" href="https://www.ti.com/lit/an/spra530/spra530.pdf">"Cyclic Redundancy Check Computation: An Implementation Using the TMS320C54x"</a> <span style="font-size:85%;">(PDF)</span>. Texas Instruments. p.&#160;6<span class="reference-accessdate">. Retrieved <span class="nowrap">October 16,</span> 2016</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Cyclic+Redundancy+Check+Computation%3A+An+Implementation+Using+the+TMS320C54x&amp;rft.pages=6&amp;rft.pub=Texas+Instruments&amp;rft.aulast=Geremia&amp;rft.aufirst=Patrick&amp;rft_id=https%3A%2F%2Fwww.ti.com%2Flit%2Fan%2Fspra530%2Fspra530.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALinear-feedback+shift+register" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.xilinx.com/support/documentation/application_notes/xapp210.pdf">Linear Feedback Shift Registers in Virtex Devices</a></span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><cite class="citation book">Press, William; Teukolsky, Saul; Vetterling, William; Flannery, Brian (2007). <i>Numerical Recipes: The Art of Scientific Computing, Third Edition</i>. <a href="/wiki/Cambridge_University_Press" title="Cambridge University Press">Cambridge University Press</a>. p.&#160;386. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-0-521-88407-5" title="Special:BookSources/978-0-521-88407-5">978-0-521-88407-5</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Numerical+Recipes%3A+The+Art+of+Scientific+Computing%2C+Third+Edition&amp;rft.pages=386&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2007&amp;rft.isbn=978-0-521-88407-5&amp;rft.aulast=Press&amp;rft.aufirst=William&amp;rft.au=Teukolsky%2C+Saul&amp;rft.au=Vetterling%2C+William&amp;rft.au=Flannery%2C+Brian&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALinear-feedback+shift+register" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><cite class="citation book">Klein, A. (2013). <a rel="nofollow" class="external text" href="https://pdfs.semanticscholar.org/0488/8883afd08ffbc4b6e8eb4d3c2f9d2182adae.pdf">"Linear Feedback Shift Registers"</a> <span style="font-size:85%;">(PDF)</span>. <i>Stream Ciphers</i>. London: Springer. pp.&#160;17–18. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//doi.org/10.1007%2F978-1-4471-5079-4_2">10.1007/978-1-4471-5079-4_2</a>. <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/978-1-4471-5079-4" title="Special:BookSources/978-1-4471-5079-4">978-1-4471-5079-4</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Linear+Feedback+Shift+Registers&amp;rft.btitle=Stream+Ciphers&amp;rft.place=London&amp;rft.pages=17-18&amp;rft.pub=Springer&amp;rft.date=2013&amp;rft_id=info%3Adoi%2F10.1007%2F978-1-4471-5079-4_2&amp;rft.isbn=978-1-4471-5079-4&amp;rft.aulast=Klein&amp;rft.aufirst=A.&amp;rft_id=https%3A%2F%2Fpdfs.semanticscholar.org%2F0488%2F8883afd08ffbc4b6e8eb4d3c2f9d2182adae.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALinear-feedback+shift+register" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-xilinx.com-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-xilinx.com_5-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-xilinx.com_5-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.xilinx.com/support/documentation/application_notes/xapp052.pdf">http://www.xilinx.com/support/documentation/application_notes/xapp052.pdf</a></span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text">A. Poorghanad, A. Sadr, A. Kashanipour" Generating High Quality Pseudo Random Number Using Evolutionary Methods", IEEE Congress on Computational Intelligence and Security, vol. 9, pp. 331-335 , May,2008 <a rel="nofollow" class="external autonumber" href="http://www.computer.org/csdl/proceedings/cis/2008/3508/01/3508a331.pdf">[1]</a></span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><cite id="CITEREFBarkamBihamKeller2008" class="citation">Barkam, Elad; Biham, Eli; Keller, Nathan (2008), <a rel="nofollow" class="external text" href="http://www.cs.technion.ac.il/users/wwwb/cgi-bin/tr-get.cgi/2006/CS/CS-2006-07.pdf">"Instant Ciphertext-Only Cryptanalysis of GSM Encrypted Communication"</a> <span style="font-size:85%;">(PDF)</span>, <i>Journal of Cryptology</i>, <b>21</b> (3): 392–429, <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//doi.org/10.1007%2Fs00145-007-9001-y">10.1007/s00145-007-9001-y</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Cryptology&amp;rft.atitle=Instant+Ciphertext-Only+Cryptanalysis+of+GSM+Encrypted+Communication&amp;rft.volume=21&amp;rft.issue=3&amp;rft.pages=392-429&amp;rft.date=2008&amp;rft_id=info%3Adoi%2F10.1007%2Fs00145-007-9001-y&amp;rft.aulast=Barkam&amp;rft.aufirst=Elad&amp;rft.au=Biham%2C+Eli&amp;rft.au=Keller%2C+Nathan&amp;rft_id=http%3A%2F%2Fwww.cs.technion.ac.il%2Fusers%2Fwwwb%2Fcgi-bin%2Ftr-get.cgi%2F2006%2FCS%2FCS-2006-07.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALinear-feedback+shift+register" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><cite class="citation journal">Lu, Yi; Willi Meier; Serge Vaudenay (2005). <a rel="nofollow" class="external text" href="http://www.terminodes.org/micsPublicationsDetail.php?pubno=1216">"The Conditional Correlation Attack: A Practical Attack on Bluetooth Encryption"</a>. <i><a href="/w/index.php?title=Crypto_(journal)&amp;action=edit&amp;redlink=1" class="new" title="Crypto (journal) (page does not exist)">Crypto</a> 2005</i>. Santa Barbara, California, USA. <b>3621</b>: 97–117. <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//doi.org/10.1007%2F11535218_7">10.1007/11535218_7</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Crypto+2005&amp;rft.atitle=The+Conditional+Correlation+Attack%3A+A+Practical+Attack+on+Bluetooth+Encryption&amp;rft.volume=3621&amp;rft.pages=97-117&amp;rft.date=2005&amp;rft_id=info%3Adoi%2F10.1007%2F11535218_7&amp;rft.aulast=Lu&amp;rft.aufirst=Yi&amp;rft.au=Willi+Meier&amp;rft.au=Serge+Vaudenay&amp;rft_id=http%3A%2F%2Fwww.terminodes.org%2FmicsPublicationsDetail.php%3Fpubno%3D1216&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALinear-feedback+shift+register" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><a class="external mw-magiclink-rfc" rel="nofollow" href="https://tools.ietf.org/html/rfc4086">RFC 4086</a> section 6.1.3 "Traditional Pseudo-random Sequences"</span></li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text">Section 9.5 of the SATA Specification, revision 2.6</span></li>
+<li id="cite_note-phasemod-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-phasemod_11-0">^</a></b></span> <span class="reference-text"><cite class="citation conference">Hetzel, P. (16 March 1988). <a rel="nofollow" class="external text" href="https://www.ptb.de/cms/fileadmin/internet/fachabteilungen/abteilung_4/4.4_zeit_und_frequenz/pdf/5_1988_Hetzel_-_Proc_EFTF_88.pdf"><i>Time dissemination via the LF transmitter DCF77 using a pseudo-random phase-shift keying of the carrier</i></a> <span style="font-size:85%;">(PDF)</span>. 2nd European Frequency and Time Forum. Neuchâtel. pp.&#160;351–364<span class="reference-accessdate">. Retrieved <span class="nowrap">11 October</span> 2011</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Time+dissemination+via+the+LF+transmitter+DCF77+using+a+pseudo-random+phase-shift+keying+of+the+carrier&amp;rft.place=Neuch%C3%A2tel&amp;rft.pages=351-364&amp;rft.date=1988-03-16&amp;rft.aulast=Hetzel&amp;rft.aufirst=P.&amp;rft_id=https%3A%2F%2Fwww.ptb.de%2Fcms%2Ffileadmin%2Finternet%2Ffachabteilungen%2Fabteilung_4%2F4.4_zeit_und_frequenz%2Fpdf%2F5_1988_Hetzel_-_Proc_EFTF_88.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALinear-feedback+shift+register" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+</ol>
+</div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit&amp;section=18" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="div-col columns column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em;">
+<ul>
+<li><a rel="nofollow" class="external text" href="http://www.newwaveinstruments.com/resources/articles/m_sequence_linear_feedback_shift_register_lfsr.htm">LFSR Reference</a> LFSR theory and implementation, maximal length sequences, and comprehensive feedback tables for lengths from 7 to 16,777,215 (3 to 24 stages), and partial tables for lengths up to 4,294,967,295 (25 to 32 stages).</li>
+<li><a rel="nofollow" class="external text" href="http://www.itu.int/rec/T-REC-O.151-199210-I/en">International Telecommunications Union Recommendation O.151</a> (August 1992)</li>
+<li><a rel="nofollow" class="external text" href="http://spreadsheets.google.com/ccc?key=0AvYtZsho-JTldFRYZnJLRFFaSWtUcVNXc1Y3M2VWd1E&amp;hl=en">Maximal Length LFSR table</a> with length from 2 to 67.</li>
+<li><a rel="nofollow" class="external text" href="http://www.maxim-ic.com/appnotes.cfm?appnote_number=1743&amp;CMP=WP-9">Pseudo-Random Number Generation Routine</a></li>
+<li><a rel="nofollow" class="external free" href="http://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/1999f/Drivers_Ed/lfsr.html">http://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/1999f/Drivers_Ed/lfsr.html</a></li>
+<li><a rel="nofollow" class="external free" href="http://www.quadibloc.com/crypto/co040801.htm">http://www.quadibloc.com/crypto/co040801.htm</a></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20060315203220/http://www.yikes.com/~ptolemy/lfsr_web/index.htm">Simple explanation of LFSRs for Engineers</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.ece.cmu.edu/~koopman/lfsr/index.html">Feedback terms</a></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20060111183721/http://homepage.mac.com/afj/lfsr.html">General LFSR Theory</a></li>
+<li><a rel="nofollow" class="external text" href="http://opencores.org/project,lfsr_randgen">An implementation of LFSR in VHDL.</a></li>
+<li><a rel="nofollow" class="external text" href="http://emmanuel.pouly.free.fr">Simple VHDL coding for Galois and Fibonacci LFSR.</a></li>
+</ul>
+</div>
+<div role="navigation" class="navbox" aria-labelledby="Stream_ciphers" style="padding:3px">
+<table class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Cryptography_stream" title="Template:Cryptography stream"><abbr title="View this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">v</abbr></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Cryptography_stream" title="Template talk:Cryptography stream"><abbr title="Discuss this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">t</abbr></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Cryptography_stream&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;">e</abbr></a></li>
+</ul>
+</div>
+<div id="Stream_ciphers" style="font-size:114%;margin:0 4em"><a href="/wiki/Stream_cipher" title="Stream cipher">Stream ciphers</a></div>
+</th>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Widely used ciphers</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/RC4" title="RC4">RC4</a></li>
+<li><a href="/wiki/Block_cipher_mode_of_operation" title="Block cipher mode of operation">block ciphers in stream mode</a></li>
+<li><a href="/wiki/Salsa20#ChaCha_variant" title="Salsa20">ChaCha</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%"><a href="/wiki/ESTREAM" title="ESTREAM">eSTREAM</a> Portfolio</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em"></div>
+<table class="nowraplinks navbox-subgroup" style="border-spacing:0">
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Software</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/HC-256" title="HC-256">HC-256</a></li>
+<li><a href="/wiki/Rabbit_(cipher)" title="Rabbit (cipher)">Rabbit</a></li>
+<li><a href="/wiki/Salsa20" title="Salsa20">Salsa20</a></li>
+<li><a href="/wiki/SOSEMANUK" title="SOSEMANUK">SOSEMANUK</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Hardware</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Grain_(cipher)" title="Grain (cipher)">Grain</a></li>
+<li><a href="/wiki/MICKEY" title="MICKEY">MICKEY</a></li>
+<li><a href="/wiki/Trivium_(cipher)" title="Trivium (cipher)">Trivium</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Other ciphers</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/A5/1" title="A5/1">A5/1</a></li>
+<li><a href="/wiki/A5/2" title="A5/2">A5/2</a></li>
+<li><a href="/wiki/Achterbahn" title="Achterbahn">Achterbahn</a></li>
+<li><a href="/wiki/E0_(cipher)" title="E0 (cipher)">E0</a></li>
+<li><a href="/wiki/F-FCSR" title="F-FCSR">F-FCSR</a></li>
+<li><a href="/wiki/FISH_(cipher)" title="FISH (cipher)">FISH</a></li>
+<li><a href="/wiki/ISAAC_(cipher)" title="ISAAC (cipher)">ISAAC</a></li>
+<li><a href="/wiki/MUGI" title="MUGI">MUGI</a></li>
+<li><a href="/wiki/Panama_(cryptography)" title="Panama (cryptography)">Panama</a></li>
+<li><a href="/wiki/Phelix" title="Phelix">Phelix</a></li>
+<li><a href="/wiki/Pike_(cipher)" title="Pike (cipher)">Pike</a></li>
+<li><a href="/wiki/Py_(cipher)" title="Py (cipher)">Py</a></li>
+<li><a href="/wiki/QUAD_(cipher)" title="QUAD (cipher)">QUAD</a></li>
+<li><a href="/wiki/Scream_(cipher)" title="Scream (cipher)">Scream</a></li>
+<li><a href="/wiki/SEAL_(cipher)" title="SEAL (cipher)">SEAL</a></li>
+<li><a href="/wiki/SNOW" title="SNOW">SNOW</a></li>
+<li><a href="/wiki/SOBER" title="SOBER">SOBER</a></li>
+<li><a href="/wiki/SOBER-128" title="SOBER-128">SOBER-128</a></li>
+<li><a href="/wiki/VEST" title="VEST">VEST</a></li>
+<li><a href="/wiki/Variably_Modified_Permutation_Composition" title="Variably Modified Permutation Composition">VMPC</a></li>
+<li><a href="/wiki/WAKE_(cipher)" title="WAKE (cipher)">WAKE</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Theory</th>
+<td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Shift_register" title="Shift register">shift register</a></li>
+<li><a class="mw-selflink selflink">LFSR</a></li>
+<li><a href="/wiki/Nonlinear-feedback_shift_register" title="Nonlinear-feedback shift register">NLFSR</a></li>
+<li><a href="/wiki/Shrinking_generator" title="Shrinking generator">shrinking generator</a></li>
+<li><a href="/wiki/T-function" title="T-function">T-function</a></li>
+<li><a href="/wiki/Initialization_vector" title="Initialization vector">IV</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group" style="width:1%">Attacks</th>
+<td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Correlation_attack" title="Correlation attack">correlation attack</a></li>
+<li><a href="/wiki/Correlation_immunity" title="Correlation immunity">correlation immunity</a></li>
+<li><a href="/wiki/Stream_cipher_attacks" title="Stream cipher attacks">stream cipher attacks</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1329
+Cached time: 20180228121905
+Cache expiry: 1900800
+Dynamic content: false
+CPU time usage: 0.312 seconds
+Real time usage: 0.495 seconds
+Preprocessor visited node count: 1472/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 57881/2097152 bytes
+Template argument size: 7028/2097152 bytes
+Highest expansion depth: 16/40
+Expensive parser function count: 5/500
+Lua time usage: 0.104/10.000 seconds
+Lua memory usage: 3.62 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  275.062      1 -total
+ 35.60%   97.934      1 Template:Reflist
+ 32.52%   89.451      4 Template:Ambox
+ 23.67%   65.105      1 Template:Multiple_issues
+ 15.93%   43.817      1 Template:Cite_web
+ 10.66%   29.323      1 Template:Redirect
+  8.28%   22.783      1 Template:Refimprove
+  7.71%   21.206      1 Template:Vague
+  7.29%   20.050      2 Template:Navbox
+  6.96%   19.151      1 Template:Cryptography_stream
+-->
+</div>
+<!-- Saved in parser cache with key enwiki:pcache:idhash:58992-0!canonical!math=5 and timestamp 20180228121905 and revision id 827484081
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Linear-feedback_shift_register&amp;oldid=827484081">https://en.wikipedia.org/w/index.php?title=Linear-feedback_shift_register&amp;oldid=827484081</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Binary_arithmetic" title="Category:Binary arithmetic">Binary arithmetic</a></li><li><a href="/wiki/Category:Digital_registers" title="Category:Digital registers">Digital registers</a></li><li><a href="/wiki/Category:Cryptographic_algorithms" title="Category:Cryptographic algorithms">Cryptographic algorithms</a></li><li><a href="/wiki/Category:Pseudorandom_number_generators" title="Category:Pseudorandom number generators">Pseudorandom number generators</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Pages_using_RFC_magic_links" title="Category:Pages using RFC magic links">Pages using RFC magic links</a></li><li><a href="/wiki/Category:Articles_needing_additional_references_from_March_2009" title="Category:Articles needing additional references from March 2009">Articles needing additional references from March 2009</a></li><li><a href="/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="/wiki/Category:Articles_lacking_in-text_citations_from_April_2009" title="Category:Articles lacking in-text citations from April 2009">Articles lacking in-text citations from April 2009</a></li><li><a href="/wiki/Category:All_articles_lacking_in-text_citations" title="Category:All articles lacking in-text citations">All articles lacking in-text citations</a></li><li><a href="/wiki/Category:Articles_with_multiple_maintenance_issues" title="Category:Articles with multiple maintenance issues">Articles with multiple maintenance issues</a></li><li><a href="/wiki/Category:All_Wikipedia_articles_needing_clarification" title="Category:All Wikipedia articles needing clarification">All Wikipedia articles needing clarification</a></li><li><a href="/wiki/Category:Wikipedia_articles_needing_clarification_from_April_2013" title="Category:Wikipedia articles needing clarification from April 2013">Wikipedia articles needing clarification from April 2013</a></li><li><a href="/wiki/Category:Articles_needing_additional_references_from_May_2016" title="Category:Articles needing additional references from May 2016">Articles needing additional references from May 2016</a></li><li><a href="/wiki/Category:Pages_using_div_col_with_deprecated_parameters" title="Category:Pages using div col with deprecated parameters">Pages using div col with deprecated parameters</a></li><li><a href="/wiki/Category:Articles_with_example_C_code" title="Category:Articles with example C code">Articles with example C code</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Linear-feedback+shift+register" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Linear-feedback+shift+register" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+							<li id="ca-nstab-main" class="selected"><span><a href="/wiki/Linear-feedback_shift_register" title="View the content page [c]" accesskey="c">Article</a></span></li><li id="ca-talk"><span><a href="/wiki/Talk:Linear-feedback_shift_register" rel="discussion" title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>						</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+						<h3 id="p-variants-label">
+							<span>Variants</span>
+						</h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+							<li id="ca-view" class="collapsible selected"><span><a href="/wiki/Linear-feedback_shift_register">Read</a></span></li><li id="ca-edit" class="collapsible"><span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=edit" title="Edit this page [e]" accesskey="e">Edit</a></span></li><li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=history" title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>						</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+						<h3 id="p-cactions-label"><span>More</span></h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+								<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+			<div class="body">
+								<ul>
+					<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+			<div class="body">
+								<ul>
+					<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+			<div class="body">
+								<ul>
+					<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Linear-feedback_shift_register" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Linear-feedback_shift_register" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Linear-feedback_shift_register&amp;oldid=827484081" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Linear-feedback_shift_register&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q681101" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Linear-feedback_shift_register&amp;id=827484081" title="Information on how to cite this page">Cite this page</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+			<div class="body">
+								<ul>
+					<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Linear-feedback+shift+register">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:ElectronPdf&amp;page=Linear-feedback+shift+register&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="/w/index.php?title=Linear-feedback_shift_register&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+			<div class="body">
+								<ul>
+					<li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Linear_feedback_shift_register" title="Linear feedback shift register – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-cs"><a href="https://cs.wikipedia.org/wiki/Posuvn%C3%BD_registr_s_line%C3%A1rn%C3%AD_zp%C4%9Btnou_vazbou" title="Posuvný registr s lineární zpětnou vazbou – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target">Čeština</a></li><li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/Linear_r%C3%BCckgekoppeltes_Schieberegister" title="Linear rückgekoppeltes Schieberegister – German" lang="de" hreflang="de" class="interlanguage-link-target">Deutsch</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/LFSR" title="LFSR – Spanish" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D8%AB%D8%A8%D8%A7%D8%AA_%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1_%D8%A8%D8%A7%D8%B2%D8%AE%D9%88%D8%B1%D8%AF_%D8%AE%D8%B7%DB%8C" title="ثبات تغییر بازخورد خطی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-fr"><a href="https://fr.wikipedia.org/wiki/Registre_%C3%A0_d%C3%A9calage_%C3%A0_r%C3%A9troaction_lin%C3%A9aire" title="Registre à décalage à rétroaction linéaire – French" lang="fr" hreflang="fr" class="interlanguage-link-target">Français</a></li><li class="interlanguage-link interwiki-ko"><a href="https://ko.wikipedia.org/wiki/%EC%84%A0%ED%98%95_%EB%90%98%EB%A8%B9%EC%9E%84_%EC%8B%9C%ED%94%84%ED%8A%B8_%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0" title="선형 되먹임 시프트 레지스터 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target">한국어</a></li><li class="interlanguage-link interwiki-it"><a href="https://it.wikipedia.org/wiki/Registro_a_scorrimento_a_retroazione_lineare" title="Registro a scorrimento a retroazione lineare – Italian" lang="it" hreflang="it" class="interlanguage-link-target">Italiano</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/LFSR" title="LFSR – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-nl"><a href="https://nl.wikipedia.org/wiki/Linear_feedback_shift_register" title="Linear feedback shift register – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target">Nederlands</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/%E7%B7%9A%E5%BD%A2%E5%B8%B0%E9%82%84%E3%82%B7%E3%83%95%E3%83%88%E3%83%AC%E3%82%B8%E3%82%B9%E3%82%BF" title="線形帰還シフトレジスタ – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target">日本語</a></li><li class="interlanguage-link interwiki-pl"><a href="https://pl.wikipedia.org/wiki/Rejestr_przesuwaj%C4%85cy_z_liniowym_sprz%C4%99%C5%BCeniem_zwrotnym" title="Rejestr przesuwający z liniowym sprzężeniem zwrotnym – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target">Polski</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80_%D1%81%D0%B4%D0%B2%D0%B8%D0%B3%D0%B0_%D1%81_%D0%BB%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D0%BE%D0%B9_%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B9_%D1%81%D0%B2%D1%8F%D0%B7%D1%8C%D1%8E" title="Регистр сдвига с линейной обратной связью – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target">Русский</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B3%D1%96%D1%81%D1%82%D1%80_%D0%B7%D1%81%D1%83%D0%B2%D1%83_%D0%B7_%D0%BB%D1%96%D0%BD%D1%96%D0%B9%D0%BD%D0%B8%D0%BC_%D0%B7%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%BD%D0%B8%D0%BC_%D0%B7%D0%B2%27%D1%8F%D0%B7%D0%BA%D0%BE%D0%BC" title="Регістр зсуву з лінійним зворотним зв&#039;язком – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E5%8F%8D%E9%A6%88%E7%A7%BB%E4%BD%8D%E5%AF%84%E5%AD%98%E5%99%A8" title="线性反馈移位寄存器 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li>				</ul>
+				<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q681101#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+				<div id="footer" role="contentinfo">
+						<ul id="footer-info">
+								<li id="footer-info-lastmod"> This page was last edited on 25 February 2018, at 00:00.</li>
+								<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+							</ul>
+						<ul id="footer-places">
+								<li id="footer-places-privacy"><a href="https://wikimediafoundation.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+								<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+								<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+								<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+								<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+								<li id="footer-places-cookiestatement"><a href="https://wikimediafoundation.org/wiki/Cookie_statement">Cookie statement</a></li>
+								<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Linear-feedback_shift_register&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+							</ul>
+										<ul id="footer-icons" class="noprint">
+										<li id="footer-copyrightico">
+						<a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>					</li>
+										<li id="footer-poweredbyico">
+						<a href="//www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>					</li>
+									</ul>
+						<div style="clear: both;"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.312","walltime":"0.495","ppvisitednodes":{"value":1472,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":57881,"limit":2097152},"templateargumentsize":{"value":7028,"limit":2097152},"expansiondepth":{"value":16,"limit":40},"expensivefunctioncount":{"value":5,"limit":500},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  275.062      1 -total"," 35.60%   97.934      1 Template:Reflist"," 32.52%   89.451      4 Template:Ambox"," 23.67%   65.105      1 Template:Multiple_issues"," 15.93%   43.817      1 Template:Cite_web"," 10.66%   29.323      1 Template:Redirect","  8.28%   22.783      1 Template:Refimprove","  7.71%   21.206      1 Template:Vague","  7.29%   20.050      2 Template:Navbox","  6.96%   19.151      1 Template:Cryptography_stream"]},"scribunto":{"limitreport-timeusage":{"value":"0.104","limit":"10.000"},"limitreport-memusage":{"value":3795931,"limit":52428800}},"cachereport":{"origin":"mw1329","timestamp":"20180228121905","ttl":1900800,"transientcontent":false}}});});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":81,"wgHostname":"mw1333"});});</script>
+	</body>
+</html>
