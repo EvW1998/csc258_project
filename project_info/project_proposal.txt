@@ -1,0 +1,26 @@
+Save your TA - mini game
+
+It's a video game allow you to shoot the monsters to save your TAs. You have a fixed postition laser gun and the monsters are coming from the top. Monsters are coming down floor by floor, your job is changing the postition of stairs to gather monsters to the postion of your laser gun and eliminate all of them before they touching your TAs. Watch the cool down time for your weapon and surive as long as you can.
+
+1. Build the interface for this game (floors, laser gun).
+2. Develop keyboard inputs, allow users using arrow keys move the selection of floor.
+3. Allow users able to add or delete floors, and shoot laser gun.
+
+4. Monsters can come down from the top, users can change their routes by add or delete floors.
+5. Users can kill monsters by shooting at them.
+
+6. Add cool down time for laser gun.
+7. Count points for player, base on the time they surived and number of monsters they killed.
+8. Add lives for the player, if he lost all their lives, he will lose (Show by numbers of TAs at the bottom).
+
+- Display the game interface using the VGA ouput and take in the keyboard input.
+- Using left and right shifter to move monsters on the floor.
+- Using Clock_50 to control the moving speed of monsters, cool down time for laser gun, and player's points base on time.
+- Using Counter, adder, and register to count the points earn by time surived and monster killing.
+- Using HEX display for displaying player's points.
+- Using FSM to track the state of the game, whether the game started, number of lives remaining, whether the game ended. Also tracking the state of monsters, either non-actived or actived or died.
+- Using ALU and random number to determine the start position of monsters.
+
+People love video games. Even the control of this game is simple, but it is going to take all of your mind to manage floors to gather all monsters together. Everyone palyed game like controlling a flight fighter around to eliminate enemies. But you cannot move around your weapons in this game, you have to use your brain. We believe this game idea is pretty awesome. Also, this is a game running on DE1-SoC board, not based on regular programming languages. It is using many technologies on hardware level, the combination of shifters and clock could interest anyone who take CSC258.
+
+Most of the sample projects in the document are video games. We found the process of making a video game could be interesting while using many materials learned in this course, and I am the event coordinater of Univeristy of Toronto Game Design and Development Club, I have plenty of experience of making video game personally.
