@@ -1,0 +1,10 @@
+
+
+D:/csc258/csc258_project/saveyourta/vga_adapter/vga_pll.v
+
+Mar 20 06PM:05:53>: Error in CNX file format.
+
+Error messages are listed in file
+D:/csc258/csc258_project/saveyourta/vga_adapter/vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)

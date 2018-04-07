@@ -1,0 +1,293 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : -9.190
+TNS   : -99.557
+
+Type  : Slow 1100mV 85C Model Setup 'rateDivider:r1|q[0]'
+Slack : -4.692
+TNS   : -95.711
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -4.108
+TNS   : -190.945
+
+Type  : Slow 1100mV 85C Model Setup 'KEY[2]'
+Slack : -1.600
+TNS   : -23.843
+
+Type  : Slow 1100mV 85C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 34.159
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.137
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'KEY[2]'
+Slack : 0.278
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.436
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'rateDivider:r1|q[0]'
+Slack : 0.510
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 1.677
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : -9.478
+TNS   : -43.355
+
+Type  : Slow 1100mV 85C Model Removal 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 1.737
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'rateDivider:r1|q[0]'
+Slack : -0.394
+TNS   : -15.175
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KEY[2]'
+Slack : -0.394
+TNS   : -10.252
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 0.213
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.851
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.758
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : -9.122
+TNS   : -99.140
+
+Type  : Slow 1100mV 0C Model Setup 'rateDivider:r1|q[0]'
+Slack : -4.779
+TNS   : -97.547
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -3.895
+TNS   : -173.329
+
+Type  : Slow 1100mV 0C Model Setup 'KEY[2]'
+Slack : -1.631
+TNS   : -24.268
+
+Type  : Slow 1100mV 0C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 34.283
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.122
+TNS   : -0.296
+
+Type  : Slow 1100mV 0C Model Hold 'KEY[2]'
+Slack : 0.335
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.430
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'rateDivider:r1|q[0]'
+Slack : 0.486
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 1.523
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : -9.345
+TNS   : -43.003
+
+Type  : Slow 1100mV 0C Model Removal 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 1.565
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'rateDivider:r1|q[0]'
+Slack : -0.394
+TNS   : -15.598
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KEY[2]'
+Slack : -0.394
+TNS   : -10.611
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.810
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.739
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : -5.018
+TNS   : -53.548
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -2.647
+TNS   : -131.103
+
+Type  : Fast 1100mV 85C Model Setup 'rateDivider:r1|q[0]'
+Slack : -2.510
+TNS   : -50.539
+
+Type  : Fast 1100mV 85C Model Setup 'KEY[2]'
+Slack : -0.435
+TNS   : -6.038
+
+Type  : Fast 1100mV 85C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 36.431
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'KEY[2]'
+Slack : 0.156
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.243
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'rateDivider:r1|q[0]'
+Slack : 0.249
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 1.080
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : -5.480
+TNS   : -24.147
+
+Type  : Fast 1100mV 85C Model Removal 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 1.234
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KEY[2]'
+Slack : -0.053
+TNS   : -0.825
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'rateDivider:r1|q[0]'
+Slack : -0.051
+TNS   : -0.734
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 0.258
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.817
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.879
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : -4.561
+TNS   : -48.924
+
+Type  : Fast 1100mV 0C Model Setup 'rateDivider:r1|q[0]'
+Slack : -2.432
+TNS   : -48.712
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -2.146
+TNS   : -102.826
+
+Type  : Fast 1100mV 0C Model Setup 'KEY[2]'
+Slack : -0.352
+TNS   : -4.808
+
+Type  : Fast 1100mV 0C Model Setup 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 36.802
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.084
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'KEY[2]'
+Slack : 0.165
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'rateDivider:r1|q[0]'
+Slack : 0.218
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.228
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 0.974
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : -4.948
+TNS   : -21.955
+
+Type  : Fast 1100mV 0C Model Removal 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 1.049
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KEY[2]'
+Slack : -0.069
+TNS   : -1.085
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'rateDivider:r1|q[0]'
+Slack : -0.028
+TNS   : -0.340
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'control:c0|current_state.S_FLOOR_0_WAIT'
+Slack : 0.291
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : 8.807
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA|mypll|altpll_component|auto_generated|generic_pll1~PLL_OUTPUT_COUNTER|divclk'
+Slack : 18.882
+TNS   : 0.000
+
+------------------------------------------------------------
